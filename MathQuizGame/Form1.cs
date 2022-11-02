@@ -98,15 +98,24 @@ namespace MathQuizGame
             }
             else
             {
-                timer1.Stop();
-                timeLabel.Text = "Time's up!";
-                MessageBox.Show("you didn't finish in time.", "Sorry!");
-                CheckAnswer();
-                sum.Value = addNum1 + addNum2;
-                diffrence.Value = subtractNum1 - subtractNum2;
-                product.Value = multiplyNum1 * multiplyNum2;
-                quotent.Value = divideNum1 / divideNum2;
-                startButton.Enabled = true;
+                if(CheckAnswer())
+                {
+                    timer1.Stop();
+                    MessageBox.Show("Nice you got everything correct!");
+                    startButton.Enabled = true;
+                }
+                else
+                {
+                    timer1.Stop();
+                    timeLabel.Text = "Time's up!";
+                    MessageBox.Show("you didn't finish in time.", "Sorry!");
+                    CheckAnswer();
+                    sum.Value = addNum1 + addNum2;
+                    diffrence.Value = subtractNum1 - subtractNum2;
+                    product.Value = multiplyNum1 * multiplyNum2;
+                    quotent.Value = divideNum1 / divideNum2;
+                    startButton.Enabled = true;
+                }
             }
         }
 
